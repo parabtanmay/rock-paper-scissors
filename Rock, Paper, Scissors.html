@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://127.0.0.1:52908/Rock%20Paper%20Scissor%20Game.html -->
+<html data-brackets-id="1"><head data-brackets-id="2"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta data-brackets-id="4" name="viewport" content="width=device-width">
+    <meta data-brackets-id="5" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-brackets-id="6">Rock, Paper, Scissors</title>
+
+    <style data-brackets-id="7">
+            body{
+                background-color:#3aafa9;
+            }
+            #para{
+                font-family: 'Open Sans', sans-serif;
+                font-size: 45px;
+                color: white;
+            }
+        .myButton{
+              text-align: center;
+              cursor: pointer;
+        }
+        .myButton #rock{
+            width: 250px;
+            height:80px;
+            font-size: 25px;
+            border-radius: 8px;
+            background-color: #17252a;
+            color: aliceblue;
+        }
+        .myButton #paper{
+            width: 250px;
+            height:80px;
+            font-size: 25px;
+             border-radius: 8px;
+             background-color: #17252a;
+            color: aliceblue;
+        }
+        .myButton #scissors{
+            width: 250px;
+            height:80px;
+            font-size: 25px;
+             border-radius: 8px;
+             background-color: #17252a;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body data-brackets-id="8">
+
+<h1 data-brackets-id="9" align="center" id="para">Rock  Paper  Scissors</h1>
+    <br data-brackets-id="10">
+    <br data-brackets-id="11">
+    <div data-brackets-id="12" class="myButton">
+      <button data-brackets-id="13" id="rock">Rock</button>
+        <br data-brackets-id="14">
+         <br data-brackets-id="15">
+      <button data-brackets-id="16" id="paper">Paper</button>
+         <br data-brackets-id="17">
+         <br data-brackets-id="18">
+      <button data-brackets-id="19" id="scissors">Scissors</button>
+    </div>
+<div data-brackets-id="20" class="game">
+
+    <script data-brackets-id="21">
+        document.getElementById("rock").onclick=user;
+        document.getElementById("paper").onclick=user;
+        document.getElementById("scissors").onclick=user;
+        
+    function user(){    // User choice
+        var userChoice = this.id;
+        if (! userChoice) {
+            // User choice was undefined
+            document.write("<h2>Player 1, you cheated! Refresh this screen and fight like a man.</h2>");
+        } else {
+            // Display user choice
+            document.write("<h2>Player 1:" + " " + userChoice + "</h2>");
+        }
+        // Computer choice
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "rock";
+        } else if(computerChoice <= 0.67) {
+            computerChoice = "paper";
+        } else {
+            computerChoice = "scissors";
+        }
+        // Display computer choice
+        document.write("<h2>Computer:" + " " + computerChoice + "</h2>");
+        // Compare user choice vs computer choice
+        var compare = function(choice1,choice2) {
+            if (choice1 === choice2) {
+                return "<h1>It's a tie!</h1>";
+            }
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    // rock wins
+                    return "<h1>You win!</h1>";
+                } else {
+                    // paper wins
+                    return "<h1>You lose! Try again.</h1>";
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    // paper wins
+                    return "<h1>You win!</h1>";
+                } else {
+                    // scissors wins
+                    return "<h1>You lose! Try again.</h1>";
+                }
+            }
+            if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    // rock wins
+                    return "<h1>You lose! Try again.</h1>";
+                } else {
+                    // scissors wins
+                    return "<h1>You win!</h1>   ";
+                }
+            }
+        };
+
+        // Run the compare function
+        var results = compare(userChoice,computerChoice);
+        // Display results
+        document.write("<br><hr><br>" + results);
+                       
+            }
+    </script>
+     
+
+</div>
+
+
+
+</body></html>
